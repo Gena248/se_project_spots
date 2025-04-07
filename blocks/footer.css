@@ -1,0 +1,16 @@
+.footer {
+  display: flex;
+  justify-content: center;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  margin: 0 auto;
+}
+
+.footer__text {
+  color: #212121;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1;
+  opacity: 70%;
+  margin: 0 0;
+}
