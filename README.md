@@ -26,3 +26,5 @@ Good luck and have fun!
 This project involves designing and developing a responsive website using HTML and CSS. The website features adaptable layouts that adjust seamlessly to different screen sizes, providing an optimal user experience across devices. CSS media queries ensure responsiveness, while hover effects are implemented to enhance interactivity and visual appeal. The project emphasizes clean code structure, accessibility, and user-friendly design
 
 [GitHub link](https://github.com/Gena248/se_project_spots)
+
+[Video](https://drive.google.com/file/d/1G_a0jYkNDz4lii3gVZl6NbQbCuliH_WV/view?usp=drive_link)
