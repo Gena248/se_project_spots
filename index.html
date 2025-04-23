@@ -110,6 +110,58 @@
       <footer class="footer">
         <p class="footer__text">2025 &#169; Spots</p>
       </footer>
+      <div class="modal modal_is-opened">
+        <div class="modal__container">
+          <button type="button" class="modal__btn-x">X</button>
+          <h2 class="modal_title">Edit profile</h2>
+          <form class="modal__form">
+            <label for="profile-name-input" class="modal__label">Name</label>
+            <input
+              type="text"
+              id="profile-name-input"
+              class="modal__input"
+              placeholder="Type your name"
+            />
+            <label for="profile-description-input" class="modal__label"
+              >Description</label
+            >
+            <input
+              type="text"
+              id="profile-description-input"
+              class="modal__input"
+              placeholder="Describe yourself"
+            />
+            <button type="submit" class="modal__btn-sub">Save</button>
+          </form>
+        </div>
+      </div>
+      <div class="modal modal_is-opened">
+        <div class="modal__container">
+          <button type="button" class="modal__btn-x">X</button>
+          <h2 class="modal_title">New post</h2>
+          <form class="modal__form">
+            <label for="profile-name-input" class="modal__label"
+              >Image link</label
+            >
+            <input
+              type="text"
+              id="new-image-input"
+              class="modal__input"
+              placeholder="Paste a link to the picture"
+            />
+            <label for="profile-description-input" class="modal__label"
+              >Caption</label
+            >
+            <input
+              type="text"
+              id="new-caption-input"
+              class="modal__input"
+              placeholder="Type your caption"
+            />
+            <button type="submit" class="modal__btn-sub">Save</button>
+          </form>
+        </div>
+      </div>
     </div>
   </body>
 </html>
