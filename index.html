@@ -24,7 +24,11 @@
           <div class="profile__column">
             <h1 class="profile__name">Bessie Coleman</h1>
             <p class="profile__description">Civil Aviator</p>
-            <button class="profile__edit-button" type="button">
+            <button
+              class="profile__edit-button"
+              type="button"
+              id="open-profile"
+            >
               <img
                 class="profile__edit-img"
                 src="./images/edit_icon.svg"
@@ -32,7 +36,9 @@
               />Edit Profile
             </button>
           </div>
-          <button class="profile__post-button" type="button">+ New Post</button>
+          <button id="open-post" class="profile__post-button" type="button">
+            + New Post
+          </button>
         </section>
         <section class="cards">
           <ul class="cards__list">
@@ -110,7 +116,7 @@
       <footer class="footer">
         <p class="footer__text">2025 &#169; Spots</p>
       </footer>
-      <div class="modal modal_is-opened">
+      <div class="modal" id="edit-profile-modal">
         <div class="modal__container">
           <button type="button" class="modal__btn-x">X</button>
           <h2 class="modal_title">Edit profile</h2>
@@ -135,7 +141,7 @@
           </form>
         </div>
       </div>
-      <div class="modal modal_is-opened">
+      <div class="modal" id="new-post-modal">
         <div class="modal__container">
           <button type="button" class="modal__btn-x">X</button>
           <h2 class="modal_title">New post</h2>
@@ -163,5 +169,6 @@
         </div>
       </div>
     </div>
+    <script src="scripts/index.js"></script>
   </body>
 </html>
