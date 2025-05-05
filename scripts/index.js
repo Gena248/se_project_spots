@@ -14,7 +14,6 @@ const newPostCapInput = document.querySelector(".card__content");
 const addCardFormElement = newPost.querySelector(".modal__form");
 const imageInput = document.querySelector("#new-image-input");
 const captionInput = document.querySelector("#new-caption-input");
-const newPostModal = document.querySelector("#new-post-modal");
 
 profileBtn.addEventListener("click", function () {
   editProfile.classList.add("modal_is-opened");
@@ -43,7 +42,7 @@ function handleAddCardSubmit(evt) {
 
   console.log(imageInput.value);
   console.log(captionInput.value);
-  newPostModal.classList.remove("modal_is-opened");
+  newPost.classList.remove("modal_is-opened");
 }
 
 addCardFormElement.addEventListener("submit", handleAddCardSubmit);

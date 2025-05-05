@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Social Media App" />
     <meta name="author" content="Genesis Sears" />
+    <meta name="keywords" content="connect, share, engage" />
     <title>Spots</title>
     <link rel="stylesheet" href="./pages/index.css" />
     <link rel="icon" href="favicon.ico" />
@@ -37,7 +38,12 @@
             </button>
           </div>
           <button id="open-post" class="profile__post-button" type="button">
-            + New Post
+            <img
+              src="./images/plus_btn.svg"
+              alt="plus button"
+              class="profile_plus_btn"
+            />
+            New Post
           </button>
         </section>
         <section class="cards">
@@ -118,7 +124,13 @@
       </footer>
       <div class="modal" id="edit-profile-modal">
         <div class="modal__container">
-          <button type="button" class="modal__btn-x">X</button>
+          <button type="button" class="modal__btn-x">
+            <img
+              src="./images/close_btn.svg"
+              alt="close button"
+              class="modal__close-btn"
+            />
+          </button>
           <h2 class="modal__title">Edit profile</h2>
           <form class="modal__form">
             <label for="profile-name-input" class="modal__label">Name</label>
@@ -143,7 +155,13 @@
       </div>
       <div class="modal" id="new-post-modal">
         <div class="modal__container">
-          <button type="button" class="modal__btn-x">X</button>
+          <button type="button" class="modal__btn-x">
+            <img
+              src="./images/close_btn.svg"
+              alt="close button"
+              class="modal__close-btn"
+            />
+          </button>
           <h2 class="modal__title">New post</h2>
           <form class="modal__form">
             <label for="new-image-input" class="modal__label">Image link</label>

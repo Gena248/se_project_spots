@@ -27,7 +27,6 @@
   line-height: 1;
   display: -webkit-box;
   overflow: hidden;
-  text-overflow: ellipsis;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
 }
@@ -40,7 +39,6 @@
   line-height: 1;
   opacity: 70%;
   overflow: hidden;
-  text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
@@ -87,6 +85,12 @@
   font-size: 16px;
   line-height: 1;
   text-align: center;
+}
+
+.profile_plus_btn {
+  height: 12px;
+  width: 12px;
+  gap: 8px;
 }
 
 .profile__post-button:hover {
