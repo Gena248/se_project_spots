@@ -15,18 +15,25 @@ const addCardFormElement = newPost.querySelector(".modal__form");
 const imageInput = document.querySelector("#new-image-input");
 const captionInput = document.querySelector("#new-caption-input");
 
-profileBtn.addEventListener("click", function () {
-  editProfile.classList.add("modal_is-opened");
-});
+function openModal(modal) {
+  modal.classList.add("modal_is-opened");
+}
 
-profileNameInput.value = profileName.textContent;
-profileDesInput.value = profileDes.textContent;
+function closeModal(modal) {
+  modal.classList.remove("modal_is-opened");
+}
+
+profileBtn.addEventListener("click", function () {
+  openModal(editProfile);
+  profileNameInput.value = profileName.textContent;
+  profileDesInput.value = profileDes.textContent;
+});
 
 editProfile.addEventListener("submit", function (event) {
   event.preventDefault();
   profileName.textContent = profileNameInput.value;
   profileDes.textContent = profileDesInput.value;
-  editProfile.classList.remove("modal_is-opened");
+  closeModal(editProfile);
 });
 
 xBtnProfile.addEventListener("click", function () {
@@ -34,7 +41,7 @@ xBtnProfile.addEventListener("click", function () {
 });
 
 postBtn.addEventListener("click", function () {
-  newPost.classList.add("modal_is-opened");
+  openModal(newPost);
 });
 
 function handleAddCardSubmit(evt) {
