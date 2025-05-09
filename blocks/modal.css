@@ -105,6 +105,10 @@
   color: #fcf5e5;
   background-color: #212121;
   border: 0;
+}
+
+.modal__btn-sub:hover {
+  opacity: 80%;
   cursor: pointer;
 }
 

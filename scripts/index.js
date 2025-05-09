@@ -1,3 +1,30 @@
+const initialCards = [
+  {
+    name: "Val Thorens",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/1-photo-by-moritz-feldmann-from-pexels.jpg",
+  },
+  {
+    name: "Restaurant terrace",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/2-photo-by-ceiline-from-pexels.jpg",
+  },
+  {
+    name: "An outdoor cafe",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/3-photo-by-tubanur-dogan-from-pexels.jpg",
+  },
+  {
+    name: "A very long bridge, over the forest and through the trees",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/4-photo-by-maurice-laschet-from-pexels.jpg",
+  },
+  {
+    name: "Tunnel with morning light",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/5-photo-by-van-anh-nguyen-from-pexels.jpg",
+  },
+  {
+    name: "Mountain house",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/6-photo-by-moritz-feldmann-from-pexels.jpg",
+  },
+];
+
 const newPost = document.querySelector("#new-post-modal");
 const editProfile = document.querySelector("#edit-profile-modal");
 const postBtn = document.querySelector("#open-post");
@@ -37,7 +64,7 @@ editProfile.addEventListener("submit", function (event) {
 });
 
 xBtnProfile.addEventListener("click", function () {
-  editProfile.classList.remove("modal_is-opened");
+  closeModal(editProfile);
 });
 
 postBtn.addEventListener("click", function () {
@@ -49,11 +76,16 @@ function handleAddCardSubmit(evt) {
 
   console.log(imageInput.value);
   console.log(captionInput.value);
-  newPost.classList.remove("modal_is-opened");
+  closeModal(newPost);
 }
 
 addCardFormElement.addEventListener("submit", handleAddCardSubmit);
 
 xBtnPost.addEventListener("click", function () {
-  newPost.classList.remove("modal_is-opened");
+  closeModal(newPost);
+});
+
+initialCards.forEach(function (element) {
+  console.log(element.name);
+  console.log(element.link);
 });
