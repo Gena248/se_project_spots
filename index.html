@@ -12,8 +12,8 @@
   </head>
   <body>
     <div class="page">
-      <header class="header">
-        <img src="./images/logo.svg" alt="Spots logo" class="header__logo" />
+      <header class="logo">
+        <img src="./images/logo.svg" alt="Spots logo" class="logo__image" />
       </header>
       <main class="content">
         <section class="profile">
@@ -41,7 +41,7 @@
             <img
               src="./images/plus_btn.svg"
               alt="plus button"
-              class="profile_plus_btn"
+              class="profile__plus-btn"
             />
             New Post
           </button>
@@ -81,6 +81,7 @@
               id="profile-name-input"
               class="modal__input"
               placeholder="Type your name"
+              required
             />
             <label for="profile-description-input" class="modal__label"
               >Description</label
@@ -90,6 +91,7 @@
               id="profile-description-input"
               class="modal__input"
               placeholder="Describe yourself"
+              required
             />
             <button type="submit" class="modal__btn-sub">Save</button>
           </form>
@@ -108,10 +110,11 @@
           <form class="modal__form">
             <label for="new-image-input" class="modal__label">Image link</label>
             <input
-              type="text"
+              type="url"
               id="new-image-input"
               class="modal__input"
               placeholder="Paste a link to the picture"
+              required
             />
             <label for="new-caption-input" class="modal__label">Caption</label>
             <input
@@ -119,6 +122,7 @@
               id="new-caption-input"
               class="modal__input"
               placeholder="Type your caption"
+              required
             />
             <button type="submit" class="modal__btn-sub">Save</button>
           </form>
