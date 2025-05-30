@@ -33,8 +33,8 @@ const newPost = document.querySelector("#new-post-modal");
 const editProfile = document.querySelector("#edit-profile-modal");
 const postBtn = document.querySelector("#open-post");
 const profileBtn = document.querySelector("#open-profile");
-const xBtnPost = newPost.querySelector(".modal__btn-x");
-const xBtnProfile = editProfile.querySelector(".modal__btn-x");
+const xBtnPost = newPost.querySelector(".modal__edit-post-btn-x");
+const xBtnProfile = editProfile.querySelector(".modal__edit-post-btn-x");
 const profileSubBtn = document.querySelector(".modal__btn-sub");
 const profileName = document.querySelector(".profile__name");
 const profileDes = document.querySelector(".profile__description");
@@ -48,7 +48,7 @@ const captionInput = document.querySelector("#new-caption-input");
 const cardTemplate = document.querySelector("#cards__template");
 const cardsList = document.querySelector(".cards__list");
 const modalClicked = document.querySelector("#modal__clicked");
-const modalClickedBtnX = modalClicked.querySelector(".modal__clicked_btn-x");
+const modalClickedBtnX = modalClicked.querySelector(".modal__btn-x");
 const modalClickedImg = modalClicked.querySelector(".modal__clicked-image");
 const modalClickedDes = modalClicked.querySelector(
   ".modal__clicked-description"
@@ -94,9 +94,6 @@ function handleAddCardSubmit(evt) {
   const cardElement = getCardElement(cardData);
   cardsList.prepend(cardElement);
 
-  console.log(imageInput.value);
-  console.log(captionInput.value);
-  getCardElement(cardData);
   closeModal(newPost);
 
   evt.target.reset();
@@ -109,7 +106,7 @@ xBtnPost.addEventListener("click", function () {
 });
 
 function getCardElement(data) {
-  const cardElement = cardTemplate.content.cloneNode(true);
+  let cardElement = cardTemplate.content.cloneNode(true);
   const cardTitle = cardElement.querySelector(".card__title");
   const cardImage = cardElement.querySelector(".card__image");
   const likeBtn = cardElement.querySelector(".card__like-button");
@@ -137,7 +134,7 @@ function getCardElement(data) {
   const deleteBtn = cardElement.querySelector(".card__delete-button");
   deleteBtn.addEventListener("click", function () {
     deleteBtn.closest(".card").remove();
-    this._element = null;
+    cardElement = null;
   });
 
   return cardElement;

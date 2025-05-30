@@ -31,7 +31,7 @@
   margin: 0 10px;
 }
 
-.modal__btn-x {
+.modal__edit-post-btn-x {
   position: absolute;
   top: 32px;
   right: 50px;
@@ -42,7 +42,7 @@
   opacity: 40%;
 }
 
-.modal__btn-x:hover {
+.modal__edit-post-btn-x:hover {
   opacity: 100%;
   cursor: pointer;
 }
@@ -116,7 +116,7 @@
   position: relative;
 }
 
-.modal__clicked_btn-x {
+.modal__btn-x {
   position: absolute;
   right: -52.5px;
   filter: invert(1);
@@ -125,6 +125,10 @@
   height: 40px;
   width: 40px;
   padding: 0;
+}
+
+.modal__btn-x:hover {
+  cursor: pointer;
 }
 
 .modal__clicked-image {
@@ -179,7 +183,7 @@
     max-width: 650px;
   }
 
-  .modal__clicked_btn-x {
+  .modal__btn-x {
     position: static;
     margin-left: auto;
     margin-bottom: 8px;
