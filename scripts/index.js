@@ -76,6 +76,9 @@ profileBtn.addEventListener("click", function () {
   openModal(editProfile);
   profileNameInput.value = profileName.textContent;
   profileDesInput.value = profileDes.textContent;
+
+  document.querySelector("#profile-name-input-error").textContent = "";
+  document.querySelector("#profile-description-input-error").textContent = "";
 });
 
 editProfile.addEventListener("submit", function (event) {
@@ -108,7 +111,7 @@ function handleAddCardSubmit(evt) {
   const inputList = Array.from(evt.target.querySelectorAll(".modal__input"));
   const buttonElement = evt.target.querySelector(".modal__btn-sub");
 
-  toggleButtonState(inputList, buttonElement);
+  toggleButtonState(buttonElement, settings);
 
   closeModal(newPost);
 }
@@ -133,16 +136,16 @@ function getCardElement(data) {
     likeBtn.classList.toggle("card__like-button_clicked");
   });
 
+  modalClickedBtnX.addEventListener("click", function () {
+    closeModal(modalClicked);
+  });
+
   cardImage.addEventListener("click", function () {
     openModal(modalClicked);
 
     modalClickedDes.textContent = data.name;
     modalClickedImg.alt = data.name;
     modalClickedImg.src = data.link;
-  });
-
-  modalClickedBtnX.addEventListener("click", function () {
-    closeModal(modalClicked);
   });
 
   const deleteBtn = cardElement.querySelector(".card__delete-button");
@@ -157,4 +160,12 @@ function getCardElement(data) {
 initialCards.forEach((cardData) => {
   const cardElement = getCardElement(cardData);
   cardsList.prepend(cardElement);
+});
+
+document.addEventListener("keydown", function (event) {
+  if (event.key === "Escape") {
+    document.querySelectorAll(".modal_is-opened").forEach((modal) => {
+      closeModal(modal);
+    });
+  }
 });

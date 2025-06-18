@@ -2,7 +2,7 @@ const settings = {
   formSelector: ".modal__form",
   inputSelector: ".modal__input",
   submitButtonSelector: ".modal__btn-sub",
-  inactiveButtonClass: "modal__btn-sub-invalid",
+  inactiveButtonClass: "modal__btn-sub_invalid",
   // inputErrorClass: "modal__input_type_error",
   errorClass: "modal__error",
 };
@@ -28,9 +28,12 @@ const checkInputValidity = (formEl, inputEl) => {
 };
 
 const hasInvalidInput = (inputList) => {
-  return inputList.some((input) => {
-    return !input.validity.valid;
-  });
+  return (
+    Array.isArray(inputList) &&
+    inputList.some((input) => {
+      return !input.validity.valid;
+    })
+  );
 };
 
 const toggleButtonState = (inputList, buttonEl, config) => {

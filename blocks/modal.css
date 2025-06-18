@@ -124,8 +124,9 @@
   cursor: pointer;
 }
 
-.modal__btn-sub-invalid {
+.modal__btn-sub_invalid {
   background-color: gray;
+  pointer-events: none;
 }
 
 .modal__clicked-container {
@@ -181,6 +182,12 @@
     padding: 12px 12px;
   }
 
+  .modal__close-btn {
+    position: absolute;
+    top: -20px;
+    right: -35px;
+  }
+
   .modal__btn-x {
     top: 12px;
     right: 12px;
@@ -192,7 +199,7 @@
   }
 
   .modal__input {
-    margin: 0 0 24px;
+    /* margin: 0 0 24px; */
     font-size: 16px;
   }
 
@@ -209,5 +216,10 @@
 
   .modal__clicked-image {
     width: 288px;
+  }
+
+  .modal__error {
+    height: auto;
+    margin-bottom: 24px;
   }
 }
