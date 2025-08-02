@@ -1,5 +1,9 @@
 import "./index.css";
-import { enableValidation, settings } from "../scripts/validation.js";
+import {
+  enableValidation,
+  settings,
+  resetValidation,
+} from "../scripts/validation.js";
 import { Api } from "../utils/Api.js";
 
 import Logo from "../images/logo.svg";
@@ -148,12 +152,12 @@ editProfile.addEventListener("submit", function (event) {
     .then((data) => {
       profileName.textContent = profileNameInput.value;
       profileDes.textContent = profileDesInput.value;
-
-      submitBtn.textContent = "Save";
       closeModal(editProfile);
     })
     .catch((err) => {
       console.error(err);
+    })
+    .finally(() => {
       submitBtn.textContent = "Save";
     });
 });
@@ -164,6 +168,7 @@ xBtnProfile.addEventListener("click", function () {
 
 postBtn.addEventListener("click", function () {
   openModal(newPost);
+  resetValidation(newPost, [captionInput, imageInput]);
 });
 
 function handleAddCardSubmit(evt) {
@@ -184,14 +189,13 @@ function handleAddCardSubmit(evt) {
       cardsList.prepend(cardElement);
 
       evt.target.reset();
-      const buttonElement = evt.target.querySelector(".modal__btn-sub");
-
-      buttonElement.textContent = "Create";
-
       closeModal(newPost);
     })
     .catch((err) => {
       console.error(err);
+      buttonElement.disabled = false;
+    })
+    .finally(() => {
       buttonElement.textContent = "Create";
     });
 }
@@ -217,21 +221,21 @@ function getCardElement(data, currentUser) {
   cardImage.alt = data.name;
   cardTitle.textContent = data.name;
 
-  if (
-    Array.isArray(data.likes) &&
-    data.likes.some((user) => user._id === currentUser._id)
-  ) {
+  if (data.isLiked) {
     likeBtn.classList.add("card__like-button_clicked");
   }
 
   likeBtn.addEventListener("click", function () {
     const isLiked = likeBtn.classList.contains("card__like-button_clicked");
-    const method = isLiked ? "DELETE" : "PUT";
 
     api
-      .changeLikeStatus(data._id, method)
+      .changeLikeStatus(data._id, isLiked)
       .then((updatedCard) => {
-        likeBtn.classList.toggle("card__like-button_clicked");
+        if (updatedCard.isLiked) {
+          likeBtn.classList.add("card__like-button_clicked");
+        } else {
+          likeBtn.classList.remove("card__like-button_clicked");
+        }
       })
       .catch((err) => {
         console.error("like request failed:", err);
@@ -266,10 +270,13 @@ function handleDeleteSubmit(evt) {
       selectedCard.remove();
       selectedCard = null;
       selectedCardId = null;
-      confirmDeleteBtn.textContent = "Delete";
+
       closeModal(deleteModal);
     })
-    .catch(console.error);
+    .catch(console.error)
+    .finally(() => {
+      confirmDeleteBtn.textContent = "Delete";
+    });
 }
 
 const deleteForm = deleteModal.querySelector(".modal__form");
@@ -286,11 +293,12 @@ function handleAvatarSumbit(evt) {
     .then((data) => {
       imageAvatar.src = data.avatar;
       avatarForm.reset();
-      buttonElement.textContent = "Save";
       closeModal(avatarModal);
     })
     .catch((err) => {
       console.error(err);
+    })
+    .finally(() => {
       buttonElement.textContent = "Save";
     });
 }

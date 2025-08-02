@@ -71,10 +71,14 @@ export const enableValidation = (config) => {
   });
 };
 
-const resetValidation = (formEl, inputList) => {
+export const resetValidation = (formEl, inputList) => {
   inputList.forEach((inputElement) => {
     hideInputError(formEl, inputElement);
   });
+  const buttonElement = formEl.querySelector(settings.submitButtonSelector);
+  if (buttonElement) {
+    disableButton(buttonElement, settings);
+  }
 };
 
 enableValidation(settings);
